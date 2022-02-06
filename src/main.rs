@@ -20,8 +20,7 @@ fn main() {
                 continue;
             }
             5 => {
-                println!("good");
-                game_system.set_current_word(guess_word);
+                game_system.update_current_word(guess_word);
             }
             _ => {
                 println!("더 짧은 단어를 입력해주세요.");
