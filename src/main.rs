@@ -1,8 +1,13 @@
+mod system;
+
 use std::io::stdin;
+use system::System;
 
 fn main() {
     // 초기 단어를 설정한다. 일단 Hello로 설정
     let selected_word = String::from("Hello");
+
+    let gameSystem = System::new(selected_word);
 
     // 사용자가 단어를 입력하게끔 한다.
     loop {
@@ -16,7 +21,6 @@ fn main() {
             }
             5 => {
                 println!("good");
-                break;
             }
             _ => {
                 println!("더 짧은 단어를 입력해주세요.");
