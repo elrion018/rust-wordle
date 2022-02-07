@@ -4,10 +4,8 @@ use std::io::stdin;
 use system::System;
 
 fn main() {
-    // 초기 단어를 설정한다. 일단 Hello로 설정
-    let selected_word = String::from("Hello");
-
-    let mut game_system = System::new(selected_word);
+    let mut game_system = System::new();
+    game_system.random_selected_word();
 
     // 사용자가 단어를 입력하게끔 한다.
     loop {
