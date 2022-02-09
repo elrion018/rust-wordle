@@ -32,7 +32,7 @@ impl System {
     // current_word를 update하는 메소드
     pub fn update_current_word(&mut self, input_word: String) -> () {
         match self.vaildate_input_word(&input_word) {
-            true => {
+            Some(true) => {
                 self.add_past_word();
                 self.current_word = input_word;
             }
@@ -41,19 +41,19 @@ impl System {
     }
 
     // 입력된 단어를 검증하는 메소드
-    pub fn vaildate_input_word(&self, input_word: &String) -> bool {
+    pub fn vaildate_input_word(&self, input_word: &String) -> Option<bool> {
         // 유효한 알파벳 문자로 구성되어있는 지 확인
         for character in input_word.chars() {
             match character {
                 'a'..='z' => (),
                 _ => {
-                    return false;
+                    return None;
                 }
             }
         }
 
         // 유효한 단어 목록에 포함되어있는 지 확인
-        return words::valid_words.contains(&input_word.as_str());
+        return Some(words::valid_words.contains(&input_word.as_str()));
     }
 
     // current_word를 past_words에 add 하는 메소드
