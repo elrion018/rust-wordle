@@ -66,6 +66,9 @@ impl System {
             }
         }
     }
+
+    // check_word String의 char들과 target_word String의 char들을 비교하는 메소드
+    // 인덱스와 char끼리 일치하는 경우 Some(true)
     pub fn check_by_target_word(&self, check_word: &String) -> [CorrectLetter; 5] {
         let mut result = [Some(true); 5];
 
@@ -84,6 +87,7 @@ impl System {
         result
     }
 
+    // format 배열의 원소와 word의 char들에 따라 coloredString을 원소로 갖는 백터를 반환하는 메소드
     pub fn format_with_color(
         &self,
         word: &String,
@@ -135,6 +139,12 @@ impl System {
             println!("┃                 ┃");
         }
         println!("┗━━━━━━━━━━━━━━━━━┛");
+
+        if self.win() {
+            println!("정답!");
+        } else if self.lose() {
+            println!("정답은 {} 이랍니다.", self.target_word);
+        }
     }
 
     pub fn win(&self) -> bool {
