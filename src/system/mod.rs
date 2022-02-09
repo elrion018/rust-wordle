@@ -158,4 +158,8 @@ impl System {
     pub fn over(&self) -> bool {
         self.win() || self.lose()
     }
+
+    pub fn start(&mut self) -> () {
+        self.random_target_word()
+    }
 }
